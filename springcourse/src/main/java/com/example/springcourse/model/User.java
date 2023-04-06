@@ -2,7 +2,8 @@ package com.example.springcourse.model;
 
 
 import jakarta.persistence.*;
-
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 
 
 @Entity
@@ -12,13 +13,18 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
+    @Size(min = 2, max = 50)
+    @NotNull
     @Column(name ="name")
     private String firstName;
 
+    @Size(min = 2, max = 50)
+    @NotNull
     @Column(name = "last_name")
     private String lastName;
 
+    @Size(min = 12, max = 50)
+    @NotNull
     @Column(name = "email")
     private String email;
 
